@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing Dependencies
+      - npm install
+  build:
+    commands:
+      - echo Building the Next.js app
+      - npm run build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - mkdir -p /home/ubuntu/examples-nextjs
+      - cp -r . /home/ubuntu/examples-nextjs/
+artifacts:
+  files:
+    - '**/*'
